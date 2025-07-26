@@ -1,0 +1,26 @@
+package models;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import play.db.jpa.Model;
+
+@Entity
+
+public class Cliente extends Model {
+	
+	public String nome;
+	public String email;
+	public String telefone;
+	public String senha;
+	
+	
+	@Enumerated(EnumType.STRING)
+	public Status status;
+	
+	public Cliente() {
+		this.status = Status.ATIVO;
+	}
+
+}

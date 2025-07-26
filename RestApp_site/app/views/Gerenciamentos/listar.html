@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Lista de clientes' /}
+
+<form action="@{Gerenciamentos.listar}">
+	<label>Buscar por nome, email ou telefone:</label>
+		<input type="text" name="termo" value="${termo}" />
+		<input type="submit" value="Buscar"/>
+	
+	</form>
+
+
+<ul>
+	
+	#{list items:listaClientes, as:'l'}
+	${l.nome} (${l.email}) (${l.telefone}) ${l.senha} <a href="@{Gerenciamentos.remover(l.id)}">Remover</a> 
+	<a href="@{Gerenciamentos.editar(l.id)}">Editar</a>
+</br>
+   
+	
+	#{/list}
+	#{else}
+	nenhum cliente cadastrado
+	#{/else}
+	
+	<a classe="btn btn-primary" href="@{Gerenciamentos.formCadastro}">Cadastrar novamente</a>
+	
+	</ul>
+
+
+
+
+
