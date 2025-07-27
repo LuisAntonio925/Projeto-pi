@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Lista de Restaurantes' /}
+
+
+
+
+<ul>
+	
+	#{list items:listaRest, as:'R'}
+	${R.nome} (${R.CNPJ}) (${R.categoria})
+</br>
+   
+	
+	#{/list}
+	#{else}
+	nenhum Restaurante cadastrado
+	#{/else}
+	
+	<a classe="btn btn-primary" href="@{Restaurantes.formCadastrarRestaurante}">Cadastrar novamente</a>
+	
+	</ul>
+
+
+
+
+

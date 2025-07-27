@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Cliente;
+import models.Restaurante;
 import models.Status;
 import play.mvc.Controller;
 
@@ -27,6 +28,10 @@ public class Gerenciamentos extends Controller {
 		//List<Cliente> listaClientes = Cliente.findAll();
 		//render(listaClientes);
 	
+	public static void detalhar(Cliente cliente) {
+		render(cliente);
+	}
+	
 	
 	public static void salvar(Cliente l) {
 		l.save();
@@ -40,6 +45,7 @@ public class Gerenciamentos extends Controller {
 		cli.status = Status.INATIVO;
 		cli.save();
 		listar(null);
+		
 
 		
 	}

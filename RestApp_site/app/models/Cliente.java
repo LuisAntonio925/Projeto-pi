@@ -1,8 +1,11 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToMany;
 
 import play.db.jpa.Model;
 
@@ -22,5 +25,9 @@ public class Cliente extends Model {
 	public Cliente() {
 		this.status = Status.ATIVO;
 	}
+	
+	@ManyToMany(mappedBy="clientes")
+	public List<Restaurante> restaurantes;
+	
 
 }
